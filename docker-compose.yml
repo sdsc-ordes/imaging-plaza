@@ -19,6 +19,8 @@ services:
       context: https://github.com/sdsc-ordes/gimie-api.git
       dockerfile: Dockerfile
     container_name: "gimie-api"
+    env_file:
+      - .env
     ports:
       - 8002:15400
     networks:
