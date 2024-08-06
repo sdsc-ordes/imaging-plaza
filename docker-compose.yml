@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+  graph-db-instance:
+    image: khaller/graphdb-free:10.6.2
+    command: ["--GDB_HEAP_SIZE", "4GB"]
+    container_name: "graph-db-instance"
+    ports:
+      - 7515:7200
+    volumes:
+      - "./db/data:/opt/graphdb/data:rw"
+      - "./db/logs:/opt/graphdb/logs:rw"
+      - "./db/work:/opt/graphdb/work:rw"
+    networks:
+      - plaza-network
+
+  gimie-api:
+    build: 
+      context: https://github.com/sdsc-ordes/gimie-api.git
+      dockerfile: Dockerfile
+    container_name: "gimie-api"
+    ports:
+      - 8002:15400
+    networks:
+      - plaza-network
+
+  shacl-validator-api:
+    build: 
+      context: https://github.com/sdsc-ordes/shacl-api.git
+      dockerfile: Dockerfile
+    container_name: "shacl-validator-api"
+    ports:
+      - 8000:15400
+      - 8501:8501
+    networks:
+      - plaza-network
+
+  fair-indicator-api:
+    build: 
+      context: https://github.com/sdsc-ordes/imaging-plaza-fair-indicator-api.git
+      dockerfile: Dockerfile
+    container_name: "fair-indicator-api"
+    ports:
+      - 8001:15400
+      - 8502:8501
+    networks:
+      - plaza-network
+
+  imaging-plaza-frontend:
+    build: 
+      context: https://${GITHUB_TOKEN}@github.com/sdsc-ordes/imaging-plaza-frontend.git
+      dockerfile: Dockerfile
+      args:
+        COTERIES_TOKEN: ${COTERIES_TOKEN}
+        FONTAWESOME_TOKEN: ${FONTAWESOME_TOKEN}
+    container_name: "imaging-plaza-frontend"
+    ports:
+      - 3000:3000
+    # entrypoint: bash # For Debugging
+    # stdin_open: true
+    # tty: true
+    volumes:
+      - "./config:/app/config"
+    links:
+      - graph-db-instance
+      - gimie-api
+      - shacl-validator-api
+      - fair-indicator-api
+    depends_on:
+      - graph-db-instance
+      - gimie-api
+      - shacl-validator-api
+      - fair-indicator-api
+    networks:
+      - plaza-network
+
+networks:
+  plaza-network:
+    driver: bridge
+
