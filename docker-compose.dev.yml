@@ -16,59 +16,69 @@ services:
 
   gimie-api:
     build: 
-      context: https://github.com/sdsc-ordes/gimie-api.git
+      context: gimie-api
       dockerfile: Dockerfile
     container_name: "gimie-api"
     env_file:
       - .env
     ports:
       - 8002:15400
+    volumes:
+      - "./gimie-api/app:/app"
+    # entrypoint: bash
+    # stdin_open: true
+    # tty: true
     networks:
       - plaza-network
 
   shacl-validator-api:
     build: 
-      context: https://github.com/sdsc-ordes/shacl-api.git
+      context: shacl-api
       dockerfile: Dockerfile
     container_name: "shacl-validator-api"
     ports:
       - 8000:15400
       - 8501:8501
+    volumes:
+      - "./shacl-api/app:/app"
+    # entrypoint: bash 
+    # stdin_open: true
+    # tty: true
     networks:
       - plaza-network
 
   fair-indicator-api:
     build: 
-      context: https://github.com/sdsc-ordes/imaging-plaza-fair-indicator-api.git
+      context: imaging-plaza-fair-indicator-api
       dockerfile: Dockerfile
     container_name: "fair-indicator-api"
     ports:
       - 8001:15400
       - 8502:8501
+    volumes:
+      - "./imaging-plaza-fair-indicator-api/imaging_plaza_fair_indicator_api:/app/imaging_plaza_fair_indicator_api"
+    # entrypoint: bash
+    # stdin_open: true
+    # tty: true
     networks:
       - plaza-network
 
-  imaging-plaza-frontend:
+  frontend:
     build: 
-      #context: https://${GITHUB_TOKEN}@github.com/sdsc-ordes/imaging-plaza-frontend.git
       context: imaging-plaza-frontend
       dockerfile: Dockerfile
       args:
         COTERIES_TOKEN: ${COTERIES_TOKEN}
         FONTAWESOME_TOKEN: ${FONTAWESOME_TOKEN}
-    container_name: "imaging-plaza-frontend"
+    container_name: "frontend"
     ports:
       - 3000:3000
-    # entrypoint: bash # For Debugging
-    # stdin_open: true
-    # tty: true
+    entrypoint: sh -c "npm run dev"
+    stdin_open: true
+    tty: true
     volumes:
+      - "./imaging-plaza-frontend:/app"
       - "./config:/app/config"
-    links:
-      - graph-db-instance
-      - gimie-api
-      - shacl-validator-api
-      - fair-indicator-api
     depends_on:
       - graph-db-instance
       - gimie-api
