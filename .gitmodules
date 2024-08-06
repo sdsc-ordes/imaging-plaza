@@ -1,0 +1,12 @@
+[submodule "gimie-api"]
+	path = gimie-api
+	url = https://github.com/sdsc-ordes/gimie-api.git
+[submodule "shacl-api"]
+	path = shacl-api
+	url = https://github.com/sdsc-ordes/shacl-api.git
+[submodule "imaging-plaza-fair-indicator-api"]
+	path = imaging-plaza-fair-indicator-api
+	url = https://github.com/sdsc-ordes/imaging-plaza-fair-indicator-api.git
+[submodule "imaging-plaza-frontend"]
+	path = imaging-plaza-frontend
+	url = https://github.com/sdsc-ordes/imaging-plaza-frontend.git
