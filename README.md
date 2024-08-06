@@ -35,6 +35,11 @@ Other services deployed are:
 
 ## How to run the developer mode?
 
+> [!NOTE]  
+> This repository makes use of submodules. Therefore, when cloning it you need to include them.
+>  
+> `git clone --recurse-submodules https://github.com/odtp-org/odtp-component-template`
+
 In development mode you can make use of the submodules to change to the development branch you would like to test.
 
 ``` bash
