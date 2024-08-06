@@ -38,7 +38,7 @@ Other services deployed are:
 > [!NOTE]  
 > This repository makes use of submodules. Therefore, when cloning it you need to include them.
 >  
-> `git clone --recurse-submodules https://github.com/odtp-org/odtp-component-template`
+> `git clone --recurse-submodules https://github.com/sdsc-ordes/imaging-plaza`
 
 In development mode you can make use of the submodules to change to the development branch you would like to test.
 
