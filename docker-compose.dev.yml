@@ -3,14 +3,16 @@ version: '3.8'
 services:
   graph-db-instance:
     image: khaller/graphdb-free:10.6.2
-    command: ["--GDB_HEAP_SIZE", "4GB"]
+    # command: ["--GDB_HEAP_SIZE", "4GB"]
+    entrypoint: ["sh", "-c", "apt-get update && apt-get install -y unzip && unzip -o /db/db.zip -d /opt/graphdb/ && exec docker-entrypoint.sh"]
     container_name: "graph-db-instance"
     ports:
       - 7515:7200
     volumes:
-      - "./db/data:/opt/graphdb/data:rw"
-      - "./db/logs:/opt/graphdb/logs:rw"
-      - "./db/work:/opt/graphdb/work:rw"
+    - "./db:/db"
+      #- "./db/data:/opt/graphdb/data:rw"
+      #- "./db/logs:/opt/graphdb/logs:rw"
+      #- "./db/work:/opt/graphdb/work:rw"
     networks:
       - plaza-network
 
@@ -23,8 +25,8 @@ services:
       - .env
     ports:
       - 8002:15400
-    volumes:
-      - "./gimie-api/app:/app"
+    # volumes:
+    #   - "./gimie-api/app:/app"
     # entrypoint: bash
     # stdin_open: true
     # tty: true
@@ -39,8 +41,8 @@ services:
     ports:
       - 8000:15400
       - 8501:8501
-    volumes:
-      - "./shacl-api/app:/app"
+    # volumes:
+    #   - "./shacl-api/app:/app"
     # entrypoint: bash 
     # stdin_open: true
     # tty: true
@@ -55,8 +57,8 @@ services:
     ports:
       - 8001:15400
       - 8502:8501
-    volumes:
-      - "./imaging-plaza-fair-indicator-api/imaging_plaza_fair_indicator_api:/app/imaging_plaza_fair_indicator_api"
+    # volumes:
+    #   - "./imaging-plaza-fair-indicator-api/imaging_plaza_fair_indicator_api:/app/imaging_plaza_fair_indicator_api"
     # entrypoint: bash
     # stdin_open: true
     # tty: true
@@ -73,11 +75,12 @@ services:
     container_name: "frontend"
     ports:
       - 3000:3000
-    entrypoint: sh -c "npm run dev"
+    entrypoint: sh -c "cp /app/config/.env.local /app/.env.local && npm run dev"
+    #entrypoint: bash
     stdin_open: true
     tty: true
     volumes:
-      - "./imaging-plaza-frontend:/app"
+      #- "./imaging-plaza-frontend:/app"
       - "./config:/app/config"
     depends_on:
       - graph-db-instance

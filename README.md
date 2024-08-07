@@ -48,7 +48,10 @@ docker compose -f docker-compose.dev.yml build
 docker compose -f docker-compose.dev.yml up
 ```
 
-Also the submodules app folders are mounted as volumes in the `/app` folders in docker.
+In order to start with a database please add the `db.zip` to `db`. GraphDB will take the file, uncompress it and then load the graph. 
+
+
+Also the submodules app folders are mounted as volumes in the `/app` folders in docker. This is optional, uncomment the volumes lines if you want to activate this option. **Be aware that developing in windows can lead to issues due to different end of the line encodings.**
 
 For instace:
 
@@ -58,7 +61,7 @@ volumes:
 ...
 ```
 
-Finally, the entrypoint are replaced by bash so the services are required to be initialized manually.
+Finally, the entrypoint are replaced by bash so the services are required to be initialized manually. By default only the frontend is in development mode. 
 
 - **gimie-api**: `uvicorn app.main:app --host 0.0.0.0 --port 15400`
 - **shacl-validator-api**: `bash /app/entrypoint.sh`
@@ -73,7 +76,7 @@ If you want to disable this for some services, please comment the following line
 # tty: true
 ```
 
-Once you have the different services up and running you can open with `vscode` (or any other IDE) the submodule folder and modify the different files. In the case of `imaging-plaza-frontend` those change will be applied automatically.
+Once you have the different services up and running you can open with `vscode` (or any other IDE) the submodule folder and modify the different files. In the case of `imaging-plaza-frontend` those change will be applied automatically. If you want this, please uncomment the docker compose volumes. 
 
 
 ## Documentation
