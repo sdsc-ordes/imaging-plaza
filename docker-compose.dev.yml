@@ -70,10 +70,10 @@ services:
       args:
         COTERIES_TOKEN: ${COTERIES_TOKEN}
         FONTAWESOME_TOKEN: ${FONTAWESOME_TOKEN}
+    entrypoint: ["bash", "cp", "/app/config/.env.local", "/app/.env.local", "&&", "npm", "install", "&&", "npm", "run", "build"]
     container_name: "frontend"
     ports:
       - 3000:3000
-    entrypoint: sh
     stdin_open: true
     tty: true
     volumes:

@@ -78,6 +78,11 @@ If you want to disable this for some services, please comment the following line
 
 Once you have the different services up and running you can open with `vscode` (or any other IDE) the submodule folder and modify the different files. In the case of `imaging-plaza-frontend` those change will be applied automatically. If you want this, please uncomment the docker compose volumes. 
 
+You can also connect to the frontend by using the following command and execute the commands in the [develop documentation](https://sdsc.atlassian.net/wiki/spaces/ORDES/pages/3299966986/Development+Documentation). 
+
+``` bash
+docker exec -t frontend bash
+```
 
 ## Documentation
 
