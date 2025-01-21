@@ -13,3 +13,6 @@
 [submodule "imaging-plaza-frontend-public"]
 	path = imaging-plaza-frontend-public
 	url = https://github.com/sdsc-ordes/imaging-plaza-frontend-public
+[submodule "imaging-plaza-backups"]
+	path = imaging-plaza-backups
+	url = https://github.com/sdsc-ordes/imaging-plaza-backups

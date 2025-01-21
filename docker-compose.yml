@@ -8,9 +8,9 @@ services:
     ports:
       - 7515:7200
     volumes:
-      - "./db/data:/opt/graphdb/data:rw"
-      - "./db/logs:/opt/graphdb/logs:rw"
-      - "./db/work:/opt/graphdb/work:rw"
+      - "./imaging-plaza-backups/db/data:/opt/graphdb/data:rw"
+      - "./imaging-plaza-backups/db/logs:/opt/graphdb/logs:rw"
+      - "./imaging-plaza-backups/db/work:/opt/graphdb/work:rw"
     networks:
       - plaza-network
 

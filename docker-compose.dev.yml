@@ -3,16 +3,14 @@ version: '3.8'
 services:
   graph-db-instance:
     image: khaller/graphdb-free:10.6.2
-    # command: ["--GDB_HEAP_SIZE", "4GB"]
-    entrypoint: ["sh", "-c", "apt-get update && apt-get install -y unzip && unzip -o /db/db.zip -d /opt/graphdb/ && exec docker-entrypoint.sh"]
+    command: ["--GDB_HEAP_SIZE", "4GB"]
     container_name: "graph-db-instance"
     ports:
       - 7515:7200
     volumes:
-    - "./db:/db"
-      #- "./db/data:/opt/graphdb/data:rw"
-      #- "./db/logs:/opt/graphdb/logs:rw"
-      #- "./db/work:/opt/graphdb/work:rw"
+    - "./imaging-plaza-backups/db/data:/opt/graphdb/data:rw"
+    - "./imaging-plaza-backups/db/logs:/opt/graphdb/logs:rw"
+    - "./imaging-plaza-backups/db/work:/opt/graphdb/work:rw"
     networks:
       - plaza-network
 
