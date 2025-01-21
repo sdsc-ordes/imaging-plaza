@@ -67,7 +67,7 @@ services:
 
   frontend:
     build: 
-      context: imaging-plaza-frontend
+      context: imaging-plaza-frontend-public
       dockerfile: Dockerfile
       args:
         COTERIES_TOKEN: ${COTERIES_TOKEN}
@@ -75,8 +75,7 @@ services:
     container_name: "frontend"
     ports:
       - 3000:3000
-    entrypoint: sh -c "cp /app/config/.env.local /app/.env.local && npm run dev"
-    #entrypoint: bash
+    entrypoint: sh
     stdin_open: true
     tty: true
     volumes:
