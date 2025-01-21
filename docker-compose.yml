@@ -50,8 +50,7 @@ services:
 
   imaging-plaza-frontend:
     build: 
-      #context: https://${GITHUB_TOKEN}@github.com/sdsc-ordes/imaging-plaza-frontend.git
-      context: imaging-plaza-frontend
+      context: imaging-plaza-frontend-public
       dockerfile: Dockerfile
       args:
         COTERIES_TOKEN: ${COTERIES_TOKEN}
