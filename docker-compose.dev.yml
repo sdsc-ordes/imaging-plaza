@@ -55,6 +55,8 @@ services:
     ports:
       - 8001:15400
       - 8502:8501
+    env_file:
+      - .env
     # volumes:
     #   - "./imaging-plaza-fair-indicator-api/imaging_plaza_fair_indicator_api:/app/imaging_plaza_fair_indicator_api"
     # entrypoint: bash
