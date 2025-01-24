@@ -42,6 +42,8 @@ services:
       context: https://github.com/sdsc-ordes/imaging-plaza-fair-indicator-api.git
       dockerfile: Dockerfile
     container_name: "fair-indicator-api"
+    env_file:
+      - .env
     ports:
       - 8001:15400
       - 8502:8501
