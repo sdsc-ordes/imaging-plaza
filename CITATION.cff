@@ -1,0 +1,96 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Imaging Plaza
+message: >-
+  If you use Imaging Plaza in your research, please cite the
+  software using the metadata provided in this file.
+type: software
+authors:
+  - family-names: Vivar Ríos
+    given-names: Carlos
+    orcid: 'https://orcid.org/0000-0002-8076-2034'
+    affiliation: Swiss Data Science Center (SDSC)
+  - family-names: Andò
+    given-names: Edward
+    orcid: 'https://orcid.org/0000-0001-5509-5287'
+    affiliation: EPFL Center for Imaging
+  - family-names: Franken
+    given-names: Robin
+    orcid: 'https://orcid.org/0009-0008-0143-9118'
+    affiliation: Swiss Data Science Center (SDSC)
+  - family-names: Wittwer
+    given-names: Mallory
+    affiliation: EPFL Center for Imaging
+  - family-names: Casey
+    given-names: Hannah
+    affiliation: Swiss Data Science Center (SDSC)
+  - family-names: Chappuis
+    given-names: Quentin
+    affiliation: EPFL Center for Imaging
+  - family-names: Donati
+    given-names: Laurène
+    orcid: 'https://orcid.org/0000-0001-9834-7755'
+    affiliation: EPFL Center for Imaging
+  - family-names: Riba Grognuz
+    given-names: Oksana
+    orcid: 'https://orcid.org/0000-0002-2961-2655'
+    affiliation: Swiss Data Science Center (SDSC)
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21889057
+    description: >-
+      Archived release of Imaging Plaza version 1.6.1 on
+      Zenodo.
+  - type: url
+    value: >-
+      https://github.com/sdsc-ordes/imaging-plaza/releases/tag/v1.6.1
+    description: GitHub release for Imaging Plaza version 1.6.1.
+  - type: url
+    value: >-
+      https://github.com/sdsc-ordes/imaging-plaza/tree/d917fdd99124c021f2e10b8527d35e734784ab0f
+    description: >-
+      Git commit corresponding to Imaging Plaza version
+      1.6.1.
+repository-code: 'https://github.com/sdsc-ordes/imaging-plaza'
+url: 'https://imaging-plaza.epfl.ch'
+repository: 'https://zenodo.org/records/21889057'
+abstract: >-
+  Imaging Plaza is a curated catalog of FAIR (Findable,
+  Accessible, Interoperable, and Reusable) imaging software
+  from across research domains and scales. It helps
+  researchers discover, evaluate, and access imaging tools
+  through AI-powered search, a FAIR-level framework,
+  structured metadata, and runnable examples. Unlike a
+  source-code repository, Imaging Plaza provides a curated
+  entry point for navigating imaging software and research
+  outputs from Switzerland and beyond. Imaging Plaza is a
+  joint endeavor of the EPFL Center for Imaging and the
+  Swiss Data Science Center (SDSC). Its development was
+  supported by an EPFL Open Science Grant and an ETH ORD
+  Explore Grant, with part of the project funded by PHRT.
+keywords:
+  - imaging
+  - image analysis
+  - scientific imaging
+  - scientific software
+  - research software
+  - FAIR software
+  - FAIR principles
+  - open science
+  - software catalog
+  - software discovery
+  - reproducible research
+  - research software engineering
+license: AGPL-3.0
+commit: d917fdd99124c021f2e10b8527d35e734784ab0f
+version: 1.6.1
+date-released: '2026-08-11'
+doi: 10.5281/zenodo.21889057
+contact:
+  - family-names: Vivar Ríos
+    given-names: Carlos
+    email: carlos.vivarrios@epfl.ch
+    orcid: 'https://orcid.org/0000-0002-8076-2034'
+    affiliation: Swiss Data Science Center (SDSC)
